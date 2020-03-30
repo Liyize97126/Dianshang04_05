@@ -8,18 +8,27 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 
-/**
- * 请求处理
- */
 public class GoodsPresenter extends BasePresenter {
-    //构造
     public GoodsPresenter(DataCall dataCall) {
         super(dataCall);
     }
     //方法实现
     @Override
     protected String getUrl(Object... args) {
-        return "http://blog.zhaoliang5156.cn/api/shop/shop1.json";
+        switch ((int)args[0]){
+            case 0:{
+                return "http://blog.zhaoliang5156.cn/api/shop/shop1.json";
+            }
+            case 1:{
+                return "http://blog.zhaoliang5156.cn/api/shop/shop2.json";
+            }
+            case 2:{
+                return "http://blog.zhaoliang5156.cn/api/shop/shop3.json";
+            }
+            default:{
+                return null;
+            }
+        }
     }
     @Override
     protected DataObjectBean getData(String response) {

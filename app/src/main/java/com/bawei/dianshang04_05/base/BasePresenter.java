@@ -6,9 +6,6 @@ import com.bawei.dianshang04_05.util.IModel;
 import com.bawei.dianshang04_05.util.VolleyUtil;
 import com.google.gson.Gson;
 
-/**
- * BasePresenter请求处理基类
- */
 public abstract class BasePresenter {
     //定义
     private static final Gson GSON = new Gson();
@@ -20,7 +17,7 @@ public abstract class BasePresenter {
     public static Gson getGSON() {
         return GSON;
     }
-    //定义发送请求方法，所有页面请求都需要调用它
+    //请求方法
     public void request(Object...args){
         //调用请求方法
         VolleyUtil.get(getUrl(args), new IModel() {
@@ -37,8 +34,6 @@ public abstract class BasePresenter {
         });
     }
     //方法封装
-    //由于每个Presenter请求链接不一样，所以需要抽象方法；类似于BaseActivity中的getLayoutId()
     protected abstract String getUrl(Object...args);
-    //由于每个Presenter的响应结果不一样，所以需要对应不同的解析过程
     protected abstract DataObjectBean getData(String response);
 }

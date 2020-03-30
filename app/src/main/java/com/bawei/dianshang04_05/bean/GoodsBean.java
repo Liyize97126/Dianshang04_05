@@ -2,9 +2,6 @@ package com.bawei.dianshang04_05.bean;
 
 import java.io.Serializable;
 
-/**
- * GoodsBean类
- */
 public class GoodsBean implements Serializable {
     private String currency_price;
     private String goods_name;
